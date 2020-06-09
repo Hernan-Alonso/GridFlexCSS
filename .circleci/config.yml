@@ -5,7 +5,6 @@ orbs:
 
 jobs:
   test:
-    working_directory: ~/
     executor:
       name: node/default
       tag: '12.17.0'
