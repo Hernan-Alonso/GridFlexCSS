@@ -1,6 +1,7 @@
 version: 2.1
 orbs:
   cypress: cypress-io/cypress@1.16.1
+  node: circleci/node@1.1 
 
 jobs:
   test:
@@ -30,6 +31,6 @@ jobs:
           path: cypress\videos
 
 workflows:
-  win-build:
+  build:
     jobs:
       - test
