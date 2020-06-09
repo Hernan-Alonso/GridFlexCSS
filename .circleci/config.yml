@@ -1,32 +1,23 @@
 version: 2.1
 orbs:
   cypress: cypress-io/cypress@1.16.1
-  win: circleci/windows@1
 
 jobs:
-  win-test:
+  test:
     working_directory: ~/
     executor:
-      name: win/vs2019
-      shell: bash.exe
+      name: node/default
+      tag: '12.17.0'
     steps:
       - checkout
       - restore_cache:
           key: dependencies-{{ arch }}-{{ .Branch }}-{{ checksum "package.json" }}
-
       - run: npm ci
       - run: npm run cy:verify
       - run: npm run cy:info
-
-      - save_cache:
-          key: dependencies-{{ arch }}-{{ .Branch }}-{{ checksum "package.json" }}
-
-      # if you want to test execa's behavior on Windows
-      # - run: node ./scripts/test-execa
-
       - run:
           name: 'Start server'
-          command: npm run start:ci:windows
+          command: npm run start:ci
           background: true
 
       - run:
@@ -38,14 +29,7 @@ jobs:
       - store_artifacts:
           path: cypress\videos
 
-  release:
-    executor: cypress/base-10
-    steps:
-      - attach_workspace:
-          at: ~/
-      - run: npm run semantic-release
-
 workflows:
   win-build:
     jobs:
-      - win-test
+      - test
