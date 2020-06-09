@@ -1,4 +1,4 @@
-describe('Visit the page and funcionality correct', ()=>{
+describe('Visit the page and funcionality correct of Blog Dev', ()=>{
     it('first nav bar should have class navegacion and be visible',()=>{
         cy.visit('http://127.0.0.1:5500/Blog/')
         cy.url().should('include','/Blog')
