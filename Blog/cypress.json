@@ -1,0 +1,6 @@
+{
+    "env": {
+      "foo": "bar",
+      "baz": "quux"
+    }
+  }
