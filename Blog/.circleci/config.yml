@@ -8,7 +8,6 @@ jobs:
       tag: '12.17.0'
     steps:
       - checkout
-      - run: cd ./Blog
       - node/with-cache:
           steps:
             - run: npm install
