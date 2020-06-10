@@ -1,35 +1,14 @@
 version: 2.1
 orbs:
-  cypress: cypress-io/cypress@1.16.1
-  node: circleci/node@1.1 
-
+  node: circleci/node@1.1
 jobs:
-  test:
+  build:
     executor:
       name: node/default
-      tag: '12.17.0'
+      tag: '10.4'
     steps:
       - checkout
-      - restore_cache:
-          key: dependencies-{{ arch }}-{{ .Branch }}-{{ checksum "package.json" }}
-      - run: npm ci
-      - run: npm run cy:verify
-      - run: npm run cy:info
-      - run:
-          name: 'Start server'
-          command: npm run start:ci
-          background: true
-
-      - run:
-          name: 'Run Cypress tests'
-          command: npm run e2e:record -- --env circle=true
-          no_output_timeout: '1m'
-      - store_artifacts:
-          path: cypress\screenshots
-      - store_artifacts:
-          path: cypress\videos
-
-workflows:
-  build:
-    jobs:
-      - test
+      - node/with-cache:
+          steps:
+            - run: npm install
+      - run: npm run test
