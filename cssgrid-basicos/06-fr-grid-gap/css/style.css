@@ -1,0 +1,44 @@
+
+h2 {
+    margin: 0;
+}
+.servicios {
+    border: 3px solid black;
+    height: 300px;
+    display: grid;
+    grid-template-columns: 33.3% 33.3% 33.3%;
+    grid-template-columns: repeat(3,33.3%);
+    /* fracciones grid */
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: repeat(3, 1fr); 
+    /* fracciones mas grandes */
+    grid-template-columns: 2fr 1fr 1fr;
+    grid-template-columns: 2fr repeat(2, 1fr);
+    /* las fracciones funcionan para no usar %, 2fr contra 1fr x 2 el primero (2fr va a tomar 50%), los otros 1fr tomaran 25% */
+    /* usando shorthand */
+    grid: repeat(2,1fr) / repeat(3,1fr);
+    /* Para no utilizar uno de los dos valores con auto lo saltea */
+    /* grid: auto / repeat(3, 1fr); */
+    /* usar gap para separar */
+    grid-column-gap: 1rem;
+    grid-row-gap: 2rem;
+    /* shorthand row column*/
+    grid-gap: 1rem 2rem;
+    
+}
+
+.servicio {
+    color: white;
+    text-align: center;
+}
+
+.servicio-1 {
+    background-color: darkviolet;
+}
+
+.servicio-2 {
+    background-color: limegreen;
+}
+.servicio-3 {
+    background-color: teal;
+}

@@ -1,0 +1,45 @@
+
+h2 {
+    margin: 0;
+}
+.servicios {
+    border: 3px solid black;
+    height: 300px;
+    display:grid;
+    grid-template-columns: repeat(auto-fill, 200px);
+    /* se acomoda siempre q no llegue a 200px el contenido pero queda fijo. existe min max para tamaño minimo y maximo */
+    grid-template-columns: repeat(autofill, minmax(200px, 1fr));
+    /* si generas un min con max donde el contenido queda Vacio, con auto fit completa todo lo vacio */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+/* para no usar media query se usa autofill y autofit */
+/* @media screen and (min-width: 768px){
+    .servicios{
+        grid-template-columns: repeat(3, 1fr);
+    }
+} */
+
+.servicio {
+    color: white;
+    text-align: center;
+}
+
+.servicio-1 {
+    background-color: darkviolet;
+}
+
+.servicio-2 {
+    background-color: rgb(8, 77, 8);
+}
+.servicio-3 {
+    background-color: teal;
+}
+.servicio-4 {
+    background-color: cornflowerblue;
+}
+.servicio-5 {
+    background-color: crimson;
+}
+.servicio-6 {
+    background-color: darkmagenta;
+}

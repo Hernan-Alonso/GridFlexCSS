@@ -1,0 +1,29 @@
+
+h2 {
+    margin: 0;
+}
+.servicios {
+    border: 3px solid black;
+    height: 300px;
+    display: grid;
+    /* grid-template-columns: 50% repeat(2, 25%);
+    grid-template-rows: repeat(3, 33%); */
+    /* Una manera mas facil de usar repeat y crear un grid es con grid */
+    grid: repeat(2, 50%)/ repeat(2, 10%) 60% 20%;
+}
+
+.servicio {
+    color: white;
+    text-align: center;
+}
+
+.servicio-1 {
+    background-color: darkviolet;
+}
+
+.servicio-2 {
+    background-color: limegreen;
+}
+.servicio-3 {
+    background-color: teal;
+}

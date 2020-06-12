@@ -1,0 +1,99 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;  
+}
+h1 {
+    margin: 0;
+}
+img {
+    width: 100%;
+}
+
+.contenedor {
+    height: 100vh;
+    width: 900px;
+    margin: 0 auto;
+    display: grid;
+    grid: 100px auto 100px / repeat(4, 25%);
+    /* grid area sirve para "pintar" tu grilla con un nombre distintivo para ahorrar tener que "contar" las lineas para darle a los elementos */
+    grid-template-areas: 
+        "header header header header"
+        "principal principal principal sidebar"
+        "footer footer footer footer";
+        /* grid gap sirve para hacer separacion entre los elementos del template */
+        grid-gap: 1rem;
+}
+
+.header {
+    background-color: coral;
+    color: white;
+    text-align: center;
+    grid-area: header;
+    /* grid-column: 1/5; */
+}
+
+.contenido-principal {
+    grid-area: principal;
+    /* grid-column: 1/4; */
+    background-color: darkred;
+}
+.sidebar {
+    grid-area: sidebar;
+    background-color: olive;
+}
+.footer {
+    grid-area: footer;
+    background-color: navy;
+    /* grid-column: 1/5; */
+}
+
+
+
+.contenedor-media {
+    margin: 0 auto;
+    max-width: 800px;
+    display: grid;
+    /* grid-template-areas:
+        "titulo titulo titulo titulo"
+        "imagen desc desc desc";
+        grid-gap: 1rem; */
+    grid-template-areas: 
+        "titulo"
+        "slogan"
+        "info"
+        "imagen"
+        "entrada"; 
+}
+
+@media screen and (min-width:768px){
+    .contenedor-media{
+        grid-template-areas: 
+            "titulo titulo"
+            "imagen slogan"
+            "imagen info"
+            "entrada entrada";
+        grid-template-columns: repeat(2,50%);
+    }
+}
+
+.titulo {
+    grid-area: titulo;
+    /* grid-area: titulo; */
+   
+}
+.imagen {
+    grid-area: imagen;
+    /* grid-area: imagen; */
+}
+.slogan {
+    grid-area: slogan;
+    
+}
+.info {
+    grid-area: info;
+}
+.entrada {
+    grid-area: entrada;
+
+}
