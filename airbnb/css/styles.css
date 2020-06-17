@@ -1,0 +1,288 @@
+:root{
+    --fuentePrincipal: 'Lato', sans-serif;
+    --primario: #da595e;
+    --oscuro: #484848;
+    --claro: #ffffff;
+    --hospedaje: #275154;
+    --concierto: #da595e;
+    --clase: #598dda;
+    --paseo: #940ad4;
+}
+html{
+    box-sizing: border-box;
+}
+*,
+*:after,
+*:before{
+    box-sizing: inherit;
+}
+body{
+    font-family: var(--fuentePrincipal);
+}
+img{
+    max-width: 100%;
+}
+h1{
+    font-size: 2.6rem;
+    font-weight: 400;
+}
+h2{
+    font-size: 2rem;
+}
+h3{
+    font-size: 1.8rem;
+}
+
+/** Colores **/
+.hospedaje{
+    color: var(--hospedaje);
+}
+.concierto{
+    color: var(--concierto);
+}
+.clase{
+    color: var(--clase);
+}
+.paseo{
+    color: var(--paseo);
+}
+.boton{
+    background-color: var(--claro);
+    display: block;
+    padding: 1rem;
+    text-decoration: none;
+    color: var(--oscuro);
+    font-weight: 400;
+    text-align: center;
+    border-radius: 10px;
+    font-size: 1.2rem;
+    box-shadow: 0px 13px 19px -10px rgba(0,0,0,.52);
+    transition: all .3s ease-in-out;
+}
+.boton:hover{
+    background-color: var(--primario);
+    color: var(--claro);
+}
+
+/*** Interfaz **/
+
+.contenedor{
+    max-width: 1100px;
+    margin: 0 auto;
+}
+.hero{
+    height: 100vh;
+    background-image: url('../img/arriba.jpg');
+    background-size: cover;
+    display: grid;
+    grid-template-rows: 1fr 2fr;
+}
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-self: start;
+    align-items: center;
+    width: 100%;
+    padding-top: 1rem;
+}
+.navegacion a{
+    color: var(--claro);
+    text-decoration: none;
+    margin-right: 1rem;
+}
+.navegacion a:last-of-type{
+    margin-right: 0;
+}
+.contenido-hero{
+    display: grid;
+    grid-template-columns: 5% auto 5%;
+    grid-template-rows: max-content auto;
+}
+.contenido-hero h1{
+    grid-column: 2/3;
+    color: var(--claro);
+}
+.contenido-hero form{
+    grid-column: 2/3;
+    grid-row: 2/3;
+    position: relative;
+    display: flex;
+    height: 3rem;
+}
+
+form input[type='text']{
+    flex: 1;
+    border: none;
+    border-radius: 10px;
+    background-image: url('../img/lupa.png');
+    background-repeat: no-repeat;
+    background-position: calc(1% + 1rem) calc(1% + .2rem);
+    padding-left: 5rem;
+    font-size: 1.6rem;
+}
+
+form input[type='submit']{
+    position: absolute;
+    right: .3rem;
+    top: .2rem;
+    padding: .7rem 2rem;
+    border: none;
+    background-color: var(--primario);
+    color: var(--claro);
+    text-transform: uppercase;
+    border-radius: 10px;
+    font-size: 1rem;
+}
+
+.btn-flotante{
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+    background-color: var(--claro);
+    padding: .5rem 2rem;
+    text-decoration: none;
+    color: var(--oscuro);
+    box-shadow: 0px 13px 19px -10px rgba(0,0,0,.52);
+    transition: all .3s ease-in-out;
+}
+.btn-flotante.activo,
+.btn-flotante:hover{
+    background-color: var(--primario);
+    color: var(--claro);
+}
+/*** Que Hacer **/
+.contenedor-cards{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-gap: 1rem;
+}
+.card img{
+    max-width: 100%;
+}
+.info .categoria{
+    text-transform: uppercase;
+    font-size: .9rem;
+    font-weight: 700;
+    margin: .1rem 0 0 0;
+}
+.info .titulo{
+    font-size: 1.5rem;
+    font-weight: 900;
+    margin: .5rem 0 0 0;
+}
+.info .precio{
+    color: var(--oscuro);
+    font-size: .9rem;
+}
+
+/** Seccion Plus ***/
+
+.premium{
+    background-image: url('../img/hospedaje-pro.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    grid-template-columns: unset;
+    background-position: center right;
+    height: 30rem;
+}
+@media(min-width: 768px){
+    .premium{
+        grid-template-columns: auto 30%;
+    }
+    .premium .info{
+        grid-column: 2/3;
+    }
+}
+.premium .info{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 1rem;
+}
+
+.premium .info h3{
+    text-align: center;
+    color: var(--oscuro);
+    font-size: 2.2rem;
+}
+@media(min-width: 768px){
+    .premium .info h3{
+        text-align: right;
+    }
+}
+
+/*** Destinos Populares **/
+
+.destinos .contenedor-cards{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+.destinos .card{
+    position: relative;
+}
+.destinos .info{
+    position: absolute;
+    bottom: 1rem;
+    left: 1rem;
+}
+.destinos .info .titulo{
+    font-size: 1.8rem;
+    color: var(--claro);
+}
+
+
+/*** Foooter ***/
+.footer{
+    position: fixed;
+    bottom: -100%;
+    background-color: var(--claro);
+    width: 100%;
+    box-shadow: 0px 13px 24px -10px rgba(0,0,0,.52);
+    transition: all .3s ease-in-out;
+    padding: 4rem 0;
+}
+.footer.activo{
+    bottom: 0;
+}
+.nav-footer{
+    padding: 1rem;
+}
+.nav-footer h3{
+    font-size: 1.2rem;
+}
+.nav-footer a{
+    display: block;
+    margin-bottom: .5rem;
+    text-decoration: none;
+    color: var(--oscuro);
+}
+.nav-footer a:last-of-type{
+    margin-bottom: 0;
+}
+
+.sociales ul li a:before{
+    font-family: "Font Awesome 5 Brands";
+}
+.sociales ul li a[href*='facebook.com']::before{
+    content: "\f39e";
+}
+.sociales ul li a[href*='twitter.com']::before{
+    content: "\f099";
+}
+.sociales ul li a[href*='instagram.com']::before{
+    content: "\f16d";
+}
+
+.sociales ul{
+    display: flex;
+    justify-content: flex-end;
+    padding: 0;
+    list-style: none;
+}
+.sociales ul li{
+    font-size: 1.6rem;
+    margin-right: 2rem;
+}
+.sociales ul li:last-of-type{
+    margin-right: 0;
+}
